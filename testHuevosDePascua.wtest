@@ -1,12 +1,30 @@
 import huevosDePascua.*
+import caceriaDeHuevos.*
+import chicosYChichas.*
 
-describe "group of tests" {
 
-  test "test 1" {
-    assert.equals(50+50, 100)
+
+describe "caceria de huevos" {
+
+  method inicializar(){
+    caceria.iniciarJuego()
   }
-  test "test 2" {
-    assert.that(true)
+
+  test "el de mayor calorias es la matrioshka" {
+    caceria.iniciarJuego()
+    assert.equals(matrioshka, caceria.huevoNoEncontradoConLaMayorCaloria())
+  }
+
+  test "test general " {
+    caceria.encontrarElPrimerHuevoPor(ana)
+    assert.equals(3, caceria.huevosNoEncontrados())
+    assert.equals(2, caceria.huevosNoEncontradosConChocolateBlanco())
+    assert.that(caceria.huevoAunNoEncontrado(conejo))
+    assert.equals([huevoRepostero, huevoMixto], caceria.huevosNoEncontradosBlancos())
+    caceria.encontrarUnHuevoPor(tito, huevoMixto)
+    caceria.encontrarLosHuevosRestantes(jose)
+    assert.that(ana.estaEnfermo())
+    assert.that(jose.estaEnfermo())
   }
 
 }
